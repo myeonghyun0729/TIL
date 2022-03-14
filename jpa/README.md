@@ -10,3 +10,5 @@
   + @Column
 * 연관관계 매핑
   + @ManyToOne, @JoinColumn
+
+> 참조 : 자바 ORM 표준 JPA 프로그래밍 By. 김영한
