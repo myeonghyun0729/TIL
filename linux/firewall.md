@@ -41,3 +41,7 @@ firewall-cmd --add-rich-rule='rule family="ipv4" source address=192.168.0.2 reje
 ## 특정 IP 특정 포트 허용 설정
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address=192.111.0.1 port port="80" protocol="tcp" accept'
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address=192.111.0.1 port port="8080" protocol="tcp" accept'
+
+## 특정 IP 특정 포트 허용 삭제
+firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address=192.111.0.1 port port="80" protocol="tcp" accept'
+firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address=192.111.0.1 port port="8080" protocol="tcp" accept'
