@@ -69,7 +69,7 @@
 ### HTK-2024-05-006	[지연][사전협의 완료][카드] 헬프데스크 등재 건 내용 정리_다이퀘스트 요청건
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=VhqeYB&nav=MTJfQjI0X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][사전협의 완료][카드] 헬프데스크 등재 건 내용 정리_다이퀘스트 요청건
   ```  
   1. 사용자 관리 요청 건
@@ -107,7 +107,7 @@
 ### HTK-2024-04-116	[지연][카드] 디플랫폼 내 실시간 대시보드 장애건 조치 요청 (2023년 7월 20일 이후)
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=X9ipN2&nav=MTJfQjI1X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서,채성국
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][카드] 디플랫폼 내 실시간 대시보드 장애건 조치 요청 (2023년 7월 20일 이후)
   ```  
   카드 디플랫폼(TheAnswer) 내 실시간 대시보드 확인 불가 장애건 조치 요청 (2023년 7월 20일 이후 조회 불가)
@@ -128,7 +128,7 @@
 ### HTK-2024-04-072	[지연][손보] QA 상담유형(대/중) 정보 맵핑 누락콜 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=2fIf0Q&nav=MTJfQjMyX3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 황민국
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][카드] 디플랫폼 내 실시간 대시보드 장애건 조치 요청 (2023년 7월 20일 이후)
   ```  
   상담품질평가 대상 콜 중 상담유형(대/중) 값 누락 콜 발생하여 확인요청드립니다.
@@ -154,7 +154,7 @@
 ### HTK-2024-04-067	[지연][손보] TA 상담어드바이저 추천의도 클릭시 오류 팝업 확인 요청 1
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=XccAf0&nav=MTJfQjMzX3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][손보] TA 상담어드바이저 추천의도 클릭시 오류 팝업 확인 요청 1
   ```  
   어드바이저 사용시 의도 추천
@@ -175,7 +175,7 @@
 ### HTK-2024-04-062	[지연][손보] TA 상담 어드바이저 장애 확인요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=TZAehD&nav=MTJfQjM0X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][손보] TA 상담 어드바이저 장애 확인요청
   ```  
   24.04.09 상담 어드바이저 장애 확인 요청
@@ -200,7 +200,7 @@
 ### HTK-2024-03-047	[지연][손보] TA 인사이트 추천문서클릭현황 콜아이디 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=SOFLEe&nav=MTJfQjM1X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][손보] TA 인사이트 추천문서클릭현황 콜아이디 확인 요청
   ```  
   TA 인사이트 로그 > [상담지원시스템] 추천문서클릭현황
@@ -223,7 +223,7 @@
 ### HTK-2024-03-029	[지연][손보] TA 상담어드바이저 의도명만 나오는 현상 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=GC4ZBu&nav=MTJfQjlfezNFNkM4NTI5LUQ5RjItNDVDQi05NjVCLUIzRDEwQUMxMzgyN30
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 진행중
   - 제목 : [지연][손보] TA 상담어드바이저 의도명만 나오는 현상 확인 요청
   ```  
   [2024/06/12]
@@ -252,7 +252,7 @@
 ### HTK-2024-03-013	[지연][카드] 상담지원시스템 관련 문의
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=Z6qjke&nav=MTJfQjI2X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][카드] 상담지원시스템 관련 문의
   ```  
   이상징후감지 쪽지 발송 관련 로그 확인 요청 드립니다.
@@ -301,7 +301,7 @@
 ### HTK-2024-02-188	[지연][카드] 상담지원시스템 지식저장소 검색 기준 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=1QDS1B&nav=MTJfQjI3X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서,황민국
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][카드] 상담지원시스템 지식저장소 검색 기준 확인 요청
   ```  
   화면: 상담지원시스템 내 지식저장소
@@ -342,7 +342,7 @@
 ### HTK-2024-02-077	[지연][카드] 상담지원시스템 내 상담 이력 데이터 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=JeQbyM&nav=MTJfQjI4X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [[지연][카드] 상담지원시스템 내 상담 이력 데이터 확인 요청
   ```  
   화면: 상담지원시스템 내 의도 추출 창(상담원 창)
@@ -355,7 +355,7 @@
   - 엑셀
 ### HTK-2024-01-096	[지연][손보] 상담어드바이저 오류 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=SuddWc&nav=MTJfQzcwX3s2REZGNkFBMS1DODRDLTRCMEEtQUE3MC05REE5Nzk1MDM1RkJ9
-  - 담당자 : 박윤서
+  - 담당자 : 
   - 상태 : 
   - 제목 : [지연][손보] 상담어드바이저 오류 확인 요청
   ```  
@@ -399,7 +399,7 @@
   - 엑셀
 ### HTK-2023-12-183	[지연][손보] TA 공휴일 관리 확인 요청 2
   - https://diquest01-my.sharepoint.com/:x:/g/personal/coreawin_diquest_com/ER3jSbdhX8VCuPR2220jBsQB8AMX5i_PRoqYGKt3wz3pxg?e=RDZfV1&nav=MTJfQjM3X3swMDAwMDAwMC0wMDAxLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDB9
-  - 담당자 : 박윤서
+  - 담당자 : 
   - 상태 : 
   - 제목 : [지연][손보] TA 공휴일 관리 확인 요청 2
   ```  
@@ -447,7 +447,7 @@
 
 ### HTK-2023-12-140	[지연](급) [손보] 상담어드바이저 관련 확인요청 1
   - https://diquest01-my.sharepoint.com/:x:/g/personal/coreawin_diquest_com/ER3jSbdhX8VCuPR2220jBsQB8AMX5i_PRoqYGKt3wz3pxg?e=aM7mUt&nav=MTJfQjM4X3swMDAwMDAwMC0wMDAxLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDB9
-  - 담당자 : 박윤서
+  - 담당자 : 
   - 상태 : 
   - 제목 : [지연](급) [손보] 상담어드바이저 관련 확인요청 1
   ```  
@@ -486,7 +486,7 @@
 ### HTK-2023-11-136	[지연][TA] 상담유형 추천정확도 장애 건 조치 요망 1
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=7xIzRU&nav=MTJfQjI5X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연]OKMS 경로 오류 문의
   ```  
   OKMS
@@ -511,7 +511,7 @@
   - 엑셀
 ### HTK-2023-11-016	[지연][손보] 상담어드바이저, 평가관리화면 오류 확인요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/coreawin_diquest_com/ER3jSbdhX8VCuPR2220jBsQB8AMX5i_PRoqYGKt3wz3pxg?e=67dL7x&nav=MTJfQjUxX3swMDAwMDAwMC0wMDAxLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDB9
-  - 담당자 : 박윤서
+  - 담당자 : 
   - 상태 : 
   - 제목 : [지연][손보] 상담어드바이저, 평가관리화면 오류 확인요청
   ```  
@@ -538,7 +538,7 @@
 ### HTK-2023-10-222	[지연][TA] 디플랫폼 의도분석 결과 장애
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=munIcY&nav=MTJfQjMwX3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박윤서
-  - 상태 : 
+  - 상태 : 일정검토중
   - 제목 : [지연][TA] 디플랫폼 의도분석 결과 장애
   ```  
   현상: 의도분석 결과가 제대로 나오지 않음, 각 페이지로 넘어갈 때 값이 이상하게 나옴
@@ -552,7 +552,7 @@
 ### HTK-2023-09-175	[지연][손보] QA 시스템 확인 요청
   - https://diquest01-my.sharepoint.com/:x:/g/personal/bellnine_diquest_com/EYb1yo4wcOtAnSLzn6jJAxEB2pLz3RmA0Qtu1AgsdYI6Fg?e=ujWJOL&nav=MTJfQjE1X3szRTZDODUyOS1EOUYyLTQ1Q0ItOTY1Qi1CM0QxMEFDMTM4Mjd9
   - 담당자 : 박세진
-  - 상태 : 
+  - 상태 : 진행중
   - 제목 : [지연][손보] QA 시스템 확인 요청
   ```  
   [2024/04/26]
