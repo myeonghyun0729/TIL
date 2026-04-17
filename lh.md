@@ -1,1 +1,2 @@
 - https://docs.google.com/spreadsheets/d/1v_ylo5MrAa_XKSAEzquIcxR4Yy5C-Eh4rA6xw43aGFk/edit?usp=sharing
+- https://www.koreagoldx.co.kr/api/main/chart
