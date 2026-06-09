@@ -1,4 +1,3 @@
-- https://docs.google.com/spreadsheets/d/1v_ylo5MrAa_XKSAEzquIcxR4Yy5C-Eh4rA6xw43aGFk/edit?usp=sharing
-- https://www.koreagoldx.co.kr/api/main/chart
-- https://docs.google.com/presentation/d/1fK51OrPMDWGdki_eeg-ANhqlAeFUD-tBl8fsA1CbYfM/edit?usp=sharing
-- https://docs.google.com/spreadsheets/d/1NXp1ergK27EPXJb9AyMRmF6wEEFvBZjvpfQz3vFmLB4/edit?usp=sharing
+- https://kr.investing.com/indices/nq-100-futures
+
+- 
