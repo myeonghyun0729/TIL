@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>더샵 검단레이크파크 — 59B 3층 옵션 계산기</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  :root {
+    --navy: #1B2A4A;
+    --navy-mid: #253860;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --bg: #F2F4F7;
+    --white: #FFFFFF;
+    --text: #1B2A4A;
+    --muted: #7A8AA0;
+    --border: #D6DCE6;
+    --green: #2D7A5A;
+    --red: #C0392B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 160px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 28px 0 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 3px 12px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .header-sub {
+    color: var(--gold-light);
+    font-size: 13px;
+    margin-top: 6px;
+    font-weight: 300;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+
+  /* BASE PRICE CARD */
+  .base-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .base-card::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.08);
+  }
+  .base-card-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .base-card-price {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .base-card-price span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-left: 4px;
+  }
+  .base-card-breakdown {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .breakdown-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .breakdown-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  .breakdown-value {
+    font-size: 14px;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  /* PAYMENT SCHEDULE */
+  .schedule-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+  }
+  .schedule-card h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .schedule-card h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 14px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .payment-block {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--border);
+  }
+  .payment-block.contract { border-left-color: var(--gold); }
+  .payment-block.middle { border-left-color: var(--navy-mid); }
+  .payment-block.balance { border-left-color: var(--green); }
+  .payment-block-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .payment-block-amount {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .payment-block-sub {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header:hover { background: var(--bg); }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .section-summary {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .chevron {
+    color: var(--muted);
+    font-size: 12px;
+    transition: transform 0.2s;
+    margin-left: 8px;
+  }
+  .section-header.open .chevron { transform: rotate(180deg); }
+  .section-body {
+    padding: 0;
+  }
+
+  /* OPTION ROW */
+  .option-group-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 500;
+    padding: 12px 20px 4px;
+    text-transform: uppercase;
+  }
+  .option-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 20px;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .option-row:last-child { border-bottom: none; }
+  .option-row:hover { background: #F8F9FC; }
+  .option-row.exclusive-group:not(:last-of-type) { }
+
+  /* custom checkbox */
+  .checkbox-wrap {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .checkbox-wrap input[type="checkbox"],
+  .checkbox-wrap input[type="radio"] {
+    display: none;
+  }
+  .checkbox-visual {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    background: var(--white);
+  }
+  .radio-visual {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    background: var(--white);
+  }
+  input:checked ~ .checkbox-visual {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  input:checked ~ .radio-visual {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .checkbox-visual::after {
+    content: '✓';
+    font-size: 12px;
+    color: white;
+    display: none;
+  }
+  input:checked ~ .checkbox-visual::after { display: block; }
+  .radio-visual::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: white;
+    display: none;
+  }
+  input:checked ~ .radio-visual::after { display: block; }
+
+  .option-info { flex: 1; }
+  .option-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .option-desc {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+  .option-price-wrap {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .option-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .option-price-detail {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* MINUS OPTION */
+  .option-price.minus { color: var(--red); }
+
+  /* NOTICE */
+  .notice {
+    background: #FFF8E8;
+    border: 1px solid var(--gold-light);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #7A6020;
+    margin: 0 20px 12px;
+    line-height: 1.6;
+  }
+  .notice::before { content: '⚠ '; }
+
+  /* STICKY TOTAL BAR */
+  .total-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--navy);
+    padding: 16px 20px 20px;
+    z-index: 100;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.25);
+  }
+  .total-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .total-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .total-left { flex: 1; }
+  .total-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .total-amount {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
+    transition: all 0.3s;
+  }
+  .total-amount span { font-size: 14px; font-weight: 400; color: var(--gold-light); margin-left: 4px; }
+  .total-breakdown {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .total-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .total-item-label {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  .total-item-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+  .total-right {
+    text-align: right;
+  }
+  .total-option-count {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .total-option-sum {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  /* SELECTED TAGS */
+  .selected-list {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    display: none;
+  }
+  .selected-list.visible { display: block; }
+  .selected-list h3 {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .tag-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .tag.minus-tag { border-color: #FFAAAA; background: #FFF0F0; color: var(--red); }
+
+  @media (max-width: 600px) {
+    .payment-grid { grid-template-columns: 1fr; }
+    .total-amount { font-size: 24px; }
+    .base-card-breakdown { flex-wrap: wrap; gap: 12px; }
+    .base-card-price { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">Option Calculator</div>
+  <h1>더샵 검단레이크파크</h1>
+  <p class="header-sub">59B타입 · 3층 (3~4층 동일 금액)</p>
+</div>
+
+<div class="container">
+
+  <!-- 기본 분양가 -->
+  <div class="base-card">
+    <div class="base-card-label">BASE PRICE · 기본 분양금액</div>
+    <div class="base-card-price">456,600,000 <span>원</span></div>
+    <div class="base-card-breakdown">
+      <div class="breakdown-item">
+        <div class="breakdown-label">대지비</div>
+        <div class="breakdown-value">119,831,945원</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-label">건축비</div>
+        <div class="breakdown-value">336,768,055원</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-label">부가세</div>
+        <div class="breakdown-value">없음 (85㎡ 이하)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 납부 일정 -->
+  <div class="schedule-card">
+    <h2>기본 납부 일정</h2>
+    <div class="payment-grid">
+      <div class="payment-block contract">
+        <div class="payment-block-label">계약금 · 10%</div>
+        <div class="payment-block-amount" id="sched-contract">45,660,000원</div>
+        <div class="payment-block-sub">1차 1,000만 (계약 시)<br>2차 잔액 (30일 내)</div>
+      </div>
+      <div class="payment-block middle">
+        <div class="payment-block-label">중도금 · 60% (6회)</div>
+        <div class="payment-block-amount" id="sched-middle">273,960,000원</div>
+        <div class="payment-block-sub">회당 45,660,000원<br>2026.12 ~ 2029.06</div>
+      </div>
+      <div class="payment-block balance">
+        <div class="payment-block-label">잔금 · 30%</div>
+        <div class="payment-block-amount" id="sched-balance">136,980,000원</div>
+        <div class="payment-block-sub">입주지정일<br>2029년 12월 예정</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 선택 옵션 목록 -->
+  <div id="selected-list" class="selected-list">
+    <h3>선택한 옵션</h3>
+    <div class="tag-wrap" id="tag-wrap"></div>
+  </div>
+
+  <!-- 발코니 확장 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">🏠</div>
+        발코니 확장
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-balcony"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="4116000" data-name="발코니 확장" data-key="balcony">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">발코니 확장</div>
+          <div class="option-desc">계약 시 411,600원 + 잔금 3,704,400원<br>※ 시스템에어컨·에코세이버 등 유상옵션 선택 필수 조건</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">4,116,000원</div>
+          <div class="option-price-detail">부가세 포함</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 시스템에어컨 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">❄️</div>
+        천장형 시스템에어컨
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-aircon"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="notice">발코니 확장 선택 시에만 신청 가능합니다. 선택 후 변경 불가.</div>
+      <div class="option-group-label">— 택 1 선택</div>
+      <label class="option-row" onclick="handleRadio(event,'aircon')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="aircon" data-price="4300000" data-name="에어컨 기본 2대 (거실+침실1)" data-key="aircon">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">기본형 2대 — 거실 + 침실1</div>
+          <div class="option-desc">계약 시 430,000원 + 잔금 3,870,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">4,300,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'aircon')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="aircon" data-price="7400000" data-name="에어컨 전실 4대 (거실+침실1·2·3)" data-key="aircon">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">전실 4대 — 거실 + 침실 1·2·3</div>
+          <div class="option-desc">계약 시 740,000원 + 잔금 6,660,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">7,400,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 에코세이버 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">🌿</div>
+        에코세이버 (제습청정환기)
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-eco"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="notice">스탠다드형은 기본/전실 에어컨 선택 시, 프리미엄형은 전실 에어컨 선택 시만 신청 가능.</div>
+      <div class="option-group-label">— 택 1 선택</div>
+      <label class="option-row" onclick="handleRadio(event,'eco')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="eco" data-price="3140000" data-name="에코세이버 스탠다드형" data-key="eco">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">스탠다드형</div>
+          <div class="option-desc">제습환기청정유니트 1개소 + 환기 컨트롤러 + 이동형 공기질측정장치<br>계약 시 314,000원 + 잔금 2,826,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">3,140,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'eco')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="eco" data-price="6370000" data-name="에코세이버 프리미엄형(각실)" data-key="eco">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">프리미엄형 (각실)</div>
+          <div class="option-desc">스탠다드 + 각실 공기질측정장치 + 전동 디퓨저<br>계약 시 637,000원 + 잔금 5,733,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">6,370,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 주방 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">🍳</div>
+        프리미엄키친
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-kitchen"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="option-group-label">— 택 1 선택</div>
+      <label class="option-row" onclick="handleRadio(event,'kitchen')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="kitchen" data-price="8210000" data-name="프리미엄키친 (표준형)" data-key="kitchen">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">프리미엄키친 (표준형)</div>
+          <div class="option-desc">유리 여닫이 상부장 + 고급 엔지니어드스톤 주방벽/상판 + 독립형 후드 + 3구 인덕션(삼성) + 고급수전<br>계약 시 821,000원 + 잔금 7,389,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">8,210,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'kitchen')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="kitchen" data-price="9450000" data-name="프리미엄키친 고급형" data-key="kitchen">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">프리미엄키친 고급형</div>
+          <div class="option-desc">표준형 + 3구 고급인덕션(삼성) 업그레이드<br>계약 시 945,000원 + 잔금 8,505,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">9,450,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 욕실 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">🛁</div>
+        프리미엄바스
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-bath"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="6360000" data-name="프리미엄바스 (공용+부부욕실)" data-key="bath">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">프리미엄바스 (공용 + 부부욕실)</div>
+          <div class="option-desc">포슬린타일(벽·바닥 600×600) + 고급수전·도기 + 엔지니어드스톤 젠다이 + 복합환풍기<br>계약 시 636,000원 + 잔금 5,724,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">6,360,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 가전 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">📦</div>
+        가전제품
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-appliance"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="option-group-label">냉장고 (택 1)</div>
+      <label class="option-row" onclick="handleRadio(event,'fridge')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="fridge" data-price="7060000" data-name="키친핏냉장고 일반형 (비스포크)" data-key="fridge">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">키친핏냉장고 일반형 (비스포크) + 수납장</div>
+          <div class="option-desc">냉장/냉동/김치 + 톨수납장 | 계약 시 706,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">7,060,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'fridge')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="fridge" data-price="16320000" data-name="키친핏냉장고 고급형 (인피니트)" data-key="fridge">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">키친핏냉장고 고급형 (인피니트) + 수납장</div>
+          <div class="option-desc">냉장/냉동/김치 + 톨수납장 | 계약 시 1,632,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">16,320,000원</div>
+        </div>
+      </label>
+
+      <div class="option-group-label">식기세척기 (택 1)</div>
+      <label class="option-row" onclick="handleRadio(event,'dishwasher')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="dishwasher" data-price="1040000" data-name="식기세척기 일반형" data-key="dishwasher">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">식기세척기 일반형 (삼성)</div>
+          <div class="option-desc">계약 시 104,000원 + 잔금 936,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">1,040,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'dishwasher')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="dishwasher" data-price="2040000" data-name="식기세척기 고급형" data-key="dishwasher">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">식기세척기 고급형 (삼성)</div>
+          <div class="option-desc">계약 시 204,000원 + 잔금 1,836,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">2,040,000원</div>
+        </div>
+      </label>
+
+      <div class="option-group-label">3구 인덕션 (택 1)</div>
+      <label class="option-row" onclick="handleRadio(event,'induction')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="induction" data-price="770000" data-name="3구 인덕션 일반형" data-key="induction">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">3구 인덕션 일반형 (삼성)</div>
+          <div class="option-desc">계약 시 77,000원 + 잔금 693,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">770,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'induction')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="induction" data-price="2010000" data-name="3구 인덕션 고급형" data-key="induction">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">3구 인덕션 고급형 (삼성)</div>
+          <div class="option-desc">계약 시 201,000원 + 잔금 1,809,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">2,010,000원</div>
+        </div>
+      </label>
+
+      <div class="option-group-label">전기오븐 (택 1)</div>
+      <label class="option-row" onclick="handleRadio(event,'oven')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="oven" data-price="400000" data-name="전기오븐 일반형" data-key="oven">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">전기오븐 일반형 (삼성)</div>
+          <div class="option-desc">계약 시 40,000원 + 잔금 360,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">400,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleRadio(event,'oven')">
+        <div class="checkbox-wrap">
+          <input type="radio" name="oven" data-price="2170000" data-name="전기오븐 고급형" data-key="oven">
+          <div class="radio-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">전기오븐 고급형 (삼성)</div>
+          <div class="option-desc">계약 시 217,000원 + 잔금 1,953,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">2,170,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 가구 및 마감재 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">🪑</div>
+        가구 · 마감재
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-furniture"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="710000" data-name="와이드강마루" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">와이드강마루 (전실)</div>
+          <div class="option-desc">계약 시 71,000원 + 잔금 639,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">710,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="4000000" data-name="디자인월 (거실+복도)" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">디자인월 (거실+복도)</div>
+          <div class="option-desc">대형타일 아트월(600×1200) + 픽처레일 간접조명 + 복도 디자인판넬<br>계약 시 400,000원 + 잔금 3,600,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">4,000,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="1600000" data-name="현관중문" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">현관중문</div>
+          <div class="option-desc">3연동 슬라이딩 중문 + 신발장 하부 조명<br>계약 시 160,000원 + 잔금 1,440,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">1,600,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="940000" data-name="자녀방 붙박이장" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">자녀방 붙박이장 (침실3)</div>
+          <div class="option-desc">계약 시 94,000원 + 잔금 846,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">940,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="2650000" data-name="올인원 드레스룸 (안방)" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">올인원 드레스룸 (안방)</div>
+          <div class="option-desc">파우더/드레스룸 통합 + AL슬라이딩도어 + 공기정화살균시스템<br>계약 시 265,000원 + 잔금 2,385,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">2,650,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="1340000" data-name="건식화 다용도실" data-key="furniture">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">건식화 다용도실</div>
+          <div class="option-desc">포슬린타일(벽·바닥) + 하부장/엔지니어드스톤 상판<br>계약 시 134,000원 + 잔금 1,206,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">1,340,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 조명 및 스마트홈 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">💡</div>
+        조명 · 스마트홈
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-smart"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="3590000" data-name="스마트감성조명 더샵루미나 2.0" data-key="smart">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">스마트감성조명 더샵루미나 2.0</div>
+          <div class="option-desc">거실 우물천정 직간접 특화조명 + 침실 1·2·3 감성조명 (색온도·밝기제어)<br>계약 시 359,000원 + 잔금 3,231,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">3,590,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="810000" data-name="스마트홈앤시큐리티" data-key="smart">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">스마트홈앤시큐리티</div>
+          <div class="option-desc">스마트 안면인식 도어폰 + 지문인식 도어락 + 원클릭 스마트 스위치<br>계약 시 81,000원 + 잔금 729,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">810,000원</div>
+        </div>
+      </label>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="900000" data-name="실링팬" data-key="smart">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">실링팬 (거실)</div>
+          <div class="option-desc">루씨에어 / 더샵루미나 2.0 선택 시에만 신청 가능<br>계약 시 90,000원 + 잔금 810,000원</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price">900,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 마이너스 옵션 -->
+  <div class="section">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <div class="section-icon">➖</div>
+        마이너스 옵션
+      </div>
+      <div style="display:flex;align-items:center">
+        <span class="section-summary" id="sum-minus"></span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="notice">선택 시 분양가에서 차감됩니다. 발코니 확장 및 모든 유상옵션 선택 불가.</div>
+      <label class="option-row" onclick="handleCheck(event)">
+        <div class="checkbox-wrap">
+          <input type="checkbox" data-price="-29508000" data-name="마이너스 옵션 (기본 마감재 제외)" data-key="minus">
+          <div class="checkbox-visual"></div>
+        </div>
+        <div class="option-info">
+          <div class="option-name">마이너스 옵션 선택</div>
+          <div class="option-desc">문·바닥·벽·천장·욕실·주방·조명기구·가구 등 기본 마감 일체 제외<br>입주 후 60일 이내 개별 시공 필요 (실내건축공사업자)</div>
+        </div>
+        <div class="option-price-wrap">
+          <div class="option-price minus">-29,508,000원</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- STICKY TOTAL BAR -->
+<div class="total-bar">
+  <div class="total-inner">
+    <div class="total-left">
+      <div class="total-label">TOTAL PRICE · 최종 금액</div>
+      <div class="total-amount" id="total-amount">456,600,000 <span>원</span></div>
+      <div class="total-breakdown">
+        <div class="total-item">
+          <div class="total-item-label">기본 분양가</div>
+          <div class="total-item-value">456,600,000원</div>
+        </div>
+        <div class="total-item" id="option-sum-wrap" style="display:none">
+          <div class="total-item-label">옵션 합계</div>
+          <div class="total-item-value" id="option-sum-value"></div>
+        </div>
+      </div>
+    </div>
+    <div class="total-right">
+      <div class="total-option-count" id="option-count"></div>
+      <div class="total-option-sum" id="option-count-detail"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const BASE = 456600000;
+  let optionTotal = 0;
+  let selectedOptions = {};
+
+  function fmt(n) {
+    return Math.abs(n).toLocaleString('ko-KR') + '원';
+  }
+  function fmtSigned(n) {
+    if (n === 0) return '';
+    return (n > 0 ? '+' : '-') + Math.abs(n).toLocaleString('ko-KR') + '원';
+  }
+
+  function toggleSection(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    if (body) {
+      body.style.display = header.classList.contains('open') ? 'block' : 'none';
+    }
+  }
+
+  function handleCheck(e) {
+    const input = e.currentTarget.querySelector('input[type="checkbox"]');
+    if (e.target === input) return;
+    input.checked = !input.checked;
+    const price = parseInt(input.dataset.price);
+    const name = input.dataset.name;
+    const key = input.dataset.key + '_' + name;
+
+    if (input.checked) {
+      selectedOptions[key] = { name, price };
+    } else {
+      delete selectedOptions[key];
+    }
+    recalc();
+  }
+
+  function handleRadio(e, groupName) {
+    const input = e.currentTarget.querySelector('input[type="radio"]');
+    if (!input) return;
+
+    // clear previous radio in same group
+    const allRadios = document.querySelectorAll(`input[name="${groupName}"]`);
+    allRadios.forEach(r => {
+      const k = r.dataset.key + '_' + r.dataset.name;
+      delete selectedOptions[k];
+    });
+
+    if (input.checked) {
+      // clicking same = deselect
+      input.checked = false;
+    } else {
+      input.checked = true;
+      const price = parseInt(input.dataset.price);
+      const name = input.dataset.name;
+      const key = input.dataset.key + '_' + name;
+      selectedOptions[key] = { name, price };
+    }
+    recalc();
+  }
+
+  function recalc() {
+    optionTotal = 0;
+    let count = 0;
+    Object.values(selectedOptions).forEach(o => {
+      optionTotal += o.price;
+      if (o.price !== 0) count++;
+    });
+
+    const total = BASE + optionTotal;
+
+    // animate total
+    const el = document.getElementById('total-amount');
+    el.innerHTML = total.toLocaleString('ko-KR') + ' <span>원</span>';
+
+    // option sum
+    const wrap = document.getElementById('option-sum-wrap');
+    const sumVal = document.getElementById('option-sum-value');
+    if (optionTotal !== 0) {
+      wrap.style.display = '';
+      sumVal.textContent = fmtSigned(optionTotal);
+      sumVal.style.color = optionTotal >= 0 ? '#C9A84C' : '#ff8888';
+    } else {
+      wrap.style.display = 'none';
+    }
+
+    // count
+    const countEl = document.getElementById('option-count');
+    const detailEl = document.getElementById('option-count-detail');
+    if (count > 0) {
+      countEl.textContent = `옵션 ${count}개 선택`;
+      detailEl.textContent = fmtSigned(optionTotal);
+      detailEl.style.color = optionTotal >= 0 ? '#C9A84C' : '#ff8888';
+    } else {
+      countEl.textContent = '옵션 없음';
+      detailEl.textContent = '';
+    }
+
+    // section summaries
+    updateSectionSummary('balcony', 'sum-balcony');
+    updateSectionSummary('aircon', 'sum-aircon');
+    updateSectionSummary('eco', 'sum-eco');
+    updateSectionSummary('kitchen', 'sum-kitchen');
+    updateSectionSummary('bath', 'sum-bath');
+    updateSectionSummary('fridge', 'sum-appliance', 'dishwasher', 'induction', 'oven');
+    updateSectionSummary('furniture', 'sum-furniture');
+    updateSectionSummary('smart', 'sum-smart');
+    updateSectionSummary('minus', 'sum-minus');
+
+    // tags
+    renderTags();
+  }
+
+  function updateSectionSummary(key, summaryId, ...extraKeys) {
+    const el = document.getElementById(summaryId);
+    if (!el) return;
+    let total = 0;
+    const keys = [key, ...extraKeys];
+    keys.forEach(k => {
+      Object.entries(selectedOptions).forEach(([sk, sv]) => {
+        if (sk.startsWith(k + '_')) total += sv.price;
+      });
+    });
+    el.textContent = total !== 0 ? fmtSigned(total) : '';
+  }
+
+  function renderTags() {
+    const list = document.getElementById('selected-list');
+    const wrap = document.getElementById('tag-wrap');
+    const entries = Object.values(selectedOptions);
+    if (entries.length === 0) {
+      list.classList.remove('visible');
+      return;
+    }
+    list.classList.add('visible');
+    wrap.innerHTML = '';
+    entries.forEach(o => {
+      const tag = document.createElement('div');
+      tag.className = 'tag' + (o.price < 0 ? ' minus-tag' : '');
+      tag.textContent = o.name + ' ' + fmtSigned(o.price);
+      wrap.appendChild(tag);
+    });
+  }
+
+  // init: all sections open
+  document.querySelectorAll('.section-body').forEach(b => b.style.display = 'block');
+</script>
+</body>
+</html>
