@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>더샵 검단레이크파크 (AB22BL) — 59B타입 3층 분양 정보 및 계산기</title>
+    <style>
+        :root {
+            --primary-color: #1e3d59;
+            --secondary-color: #17b978;
+            --background-color: #f5f7fa;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --text-muted: #666666;
+            --border-color: #e1e8ed;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-background);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 16pt;
+            margin-top: 30px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .blockquote {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 11pt;
+            color: var(--text-muted);
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 13pt;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 30px 0;
+            font-size: 11pt;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Checkbox Styling */
+        .option-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        /* Fixed Calculator Bar */
+        .sticky-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .summary-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .summary-title {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+
+        .summary-total {
+            font-size: 22pt;
+            font-weight: 800;
+            color: #edffec;
+        }
+
+        .summary-details {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            font-size: 10pt;
+            color: #d1e2ed;
+            margin-top: 5px;
+        }
+
+        .notice {
+            font-size: 9.5pt;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            padding-left: 5px;
+        }
+
+        /* Bottom padding for body to clear sticky bar */
+        .bottom-spacer {
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>더샵 검단레이크파크 (AB22BL) — 59B타입 3층</h1>
+    
+    <div class="blockquote">
+        3~4층 기준 / 공급금액: 456,600,000원
+    </div>
+
+    <h2>분양 기본 금액</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>항목</th>
+                <th class="right">금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>대지비</td>
+                <td class="right">119,831,945원</td>
+            </tr>
+            <tr>
+                <td>건축비</td>
+                <td class="right">336,768,055원</td>
+            </tr>
+            <tr>
+                <td>부가세</td>
+                <td class="right">없음 (전용 85㎡ 이하)</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #f0f4f8;">
+                <td>공급금액 (총액)</td>
+                <td class="right" style="color: var(--primary-color);">456,600,000원</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>납부 일정</h2>
+    <h3>계약금 (총 10%)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th class="right">금액</th>
+                <th>납부 시기</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1차 계약금</td>
+                <td class="right">10,000,000원</td>
+                <td>계약 시</td>
+            </tr>
+            <tr>
+                <td>2차 계약금</td>
+                <td class="right">35,660,000원</td>
+                <td>계약 후 30일 이내</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>계약금 합계</td>
+                <td class="right">45,660,000원</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>중도금 (총 60% / 회차별 10%)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>회차</th>
+                <th class="right">금액</th>
+                <th class="center">납부일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1회</td><td class="right">45,660,000원</td><td class="center">2026.12.15.</td></tr>
+            <tr><td>2회</td><td class="right">45,660,000원</td><td class="center">2027.06.15.</td></tr>
+            <tr><td>3회</td><td class="right">45,660,000원</td><td class="center">2027.12.15.</td></tr>
+            <tr><td>4회</td><td class="right">45,660,000원</td><td class="center">2028.08.14.</td></tr>
+            <tr><td>5회</td><td class="right">45,660,000원</td><td class="center">2029.01.15.</td></tr>
+            <tr><td>6회</td><td class="right">45,660,000원</td><td class="center">2029.06.15.</td></tr>
+            <tr style="font-weight: bold;">
+                <td>중도금 합계</td>
+                <td class="right">273,960,000원</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>잔금 (30%)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>항목</th>
+                <th class="right">금액</th>
+                <th>납부 시기</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="font-weight: bold;">
+                <td>잔금</td>
+                <td class="right">136,980,000원</td>
+                <td>입주지정일</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>옵션 선택 및 금액 계산기</h2>
+    <div class="notice">※ 옵션 계약금은 10%, 잔금은 90%(입주지정일) 구조입니다.</div>
+
+    <h3>마이너스 옵션 (선택 시 타 옵션 선택 불가)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th class="center" style="width: 50px;">선택</th>
+                <th>항목</th>
+                <th class="right">금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center"><input type="checkbox" class="option-checkbox" id="minus-opt" data-price="-29508000" data-group="minus" onchange="handleMinusOption(this)"></td>
+                <td><label for="minus-opt"><strong>마이너스 옵션 감액</strong> (선택 시 타 유상옵션 및 발코니 확장 불가)</label></td>
+                <td class="right" style="color: #d9534f;">-29,508,000원</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="normal-options-group">
+        <h3>발코니 확장</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>항목</th>
+                    <th class="right">총액</th>
+                    <th class="right">계약금 (10%)</th>
+                    <th class="right">잔금 (90%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="balcony" data-price="4116000" onchange="handleBalcony(this)"></td>
+                    <td><label for="balcony">발코니 확장</label></td>
+                    <td class="right">4,116,000원</td>
+                    <td class="right">411,600원</td>
+                    <td class="right">3,704,400원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>시스템에어컨 (발코니 확장 선택 시에만 신청 가능)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>구분</th>
+                    <th class="right">총액</th>
+                    <th class="right">계약금 (10%)</th>
+                    <th class="right">잔금 (90%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="radio" name="aircon" class="option-checkbox normal-opt aircon-radio" id="aircon1" data-price="4300000" disabled onchange="handleAircon()"></td>
+                    <td><label for="aircon1">기본형 2대 (거실+침실1)</label></td>
+                    <td class="right">4,300,000원</td>
+                    <td class="right">430,000원</td>
+                    <td class="right">3,870,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="aircon" class="option-checkbox normal-opt aircon-radio" id="aircon2" data-price="7400000" disabled onchange="handleAircon()"></td>
+                    <td><label for="aircon2">전실 4대 (거실+침실1~3)</label></td>
+                    <td class="right">7,400,000원</td>
+                    <td class="right">740,000원</td>
+                    <td class="right">6,660,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="aircon" class="option-checkbox normal-opt aircon-radio" id="aircon-none" data-price="0" checked disabled onchange="handleAircon()"></td>
+                    <td><label for="aircon-none">선택 안함</label></td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>에코세이버 (제습청정환기)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>구분</th>
+                    <th class="right">총액</th>
+                    <th class="right">계약금 (10%)</th>
+                    <th class="right">잔금 (90%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="radio" name="ecosaver" class="option-checkbox normal-opt" id="eco1" data-price="314000" disabled onchange="calculateTotal()"></td>
+                    <td><label for="eco1">스탠다드형 <span style="font-size:9pt; color:#666;">(기본/전실 에어컨 선택 시 가능)</span></label></td>
+                    <td class="right">3,140,000원</td>
+                    <td class="right">314,000원</td>
+                    <td class="right">2,826,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="ecosaver" class="option-checkbox normal-opt" id="eco2" data-price="637000" disabled onchange="calculateTotal()"></td>
+                    <td><label for="eco2">프리미엄형(각실) <span style="font-size:9pt; color:#666;">(전실 에어컨 선택 시만 가능)</span></label></td>
+                    <td class="right">6,370,000원</td>
+                    <td class="right">637,000원</td>
+                    <td class="right">5,733,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="ecosaver" class="option-checkbox normal-opt" id="eco-none" data-price="0" checked disabled onchange="calculateTotal()"></td>
+                    <td><label for="eco-none">선택 안함</label></td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>주방 (프리미엄키친)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>구분</th>
+                    <th class="right">총액</th>
+                    <th class="right">계약금 (10%)</th>
+                    <th class="right">잔금 (90%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="radio" name="kitchen" class="option-checkbox normal-opt" id="kit1" data-price="821000" onchange="calculateTotal()"></td>
+                    <td><label for="kit1">프리미엄키친</label></td>
+                    <td class="right">8,210,000원</td>
+                    <td class="right">821,000원</td>
+                    <td class="right">7,389,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="kitchen" class="option-checkbox normal-opt" id="kit2" data-price="945000" onchange="calculateTotal()"></td>
+                    <td><label for="kit2">프리미엄키친 고급형</label></td>
+                    <td class="right">9,450,000원</td>
+                    <td class="right">945,000원</td>
+                    <td class="right">8,505,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="kitchen" class="option-checkbox normal-opt" id="kit-none" data-price="0" checked onchange="calculateTotal()"></td>
+                    <td><label for="kit-none">선택 안함</label></td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                    <td class="right">0원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>욕실 (프리미엄바스)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>구분</th>
+                    <th class="right">총액</th>
+                    <th class="right">계약금 (10%)</th>
+                    <th class="right">잔금 (90%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="bath" data-price="636000" onchange="calculateTotal()"></td>
+                    <td><label for="bath">프리미엄바스 (공용+부부욕실)</label></td>
+                    <td class="right">6,360,000원</td>
+                    <td class="right">636,000원</td>
+                    <td class="right">5,724,000원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>빌트인 가전</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>품목</th>
+                    <th>구분</th>
+                    <th class="right">총액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 냉장고 -->
+                <tr>
+                    <td class="center"><input type="radio" name="fridge" class="option-checkbox normal-opt" id="fridge1" data-price="706000" onchange="calculateTotal()"></td>
+                    <td>키친핏냉장고+수납장</td>
+                    <td>일반형 (비스포크)</td>
+                    <td class="right">7,060,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="fridge" class="option-checkbox normal-opt" id="fridge2" data-price="1632000" onchange="calculateTotal()"></td>
+                    <td>키친핏냉장고+수납장</td>
+                    <td>고급형 (인피니트)</td>
+                    <td class="right">16,320,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="fridge" class="option-checkbox normal-opt" id="fridge-none" data-price="0" checked onchange="calculateTotal()"></td>
+                    <td colspan="2">냉장고 선택 안함</td>
+                    <td class="right">0원</td>
+                </tr>
+                <!-- 식기세척기 -->
+                <tr>
+                    <td class="center"><input type="radio" name="dishwasher" class="option-checkbox normal-opt" id="dish1" data-price="104000" onchange="calculateTotal()"></td>
+                    <td>식기세척기</td>
+                    <td>일반형</td>
+                    <td class="right">1,040,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="dishwasher" class="option-checkbox normal-opt" id="dish2" data-price="204000" onchange="calculateTotal()"></td>
+                    <td>식기세척기</td>
+                    <td>고급형</td>
+                    <td class="right">2,040,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="dishwasher" class="option-checkbox normal-opt" id="dish-none" data-price="0" checked onchange="calculateTotal()"></td>
+                    <td colspan="2">식기세척기 선택 안함</td>
+                    <td class="right">0원</td>
+                </tr>
+                <!-- 인덕션 -->
+                <tr>
+                    <td class="center"><input type="radio" name="induction" class="option-checkbox normal-opt" id="ind1" data-price="77000" onchange="calculateTotal()"></td>
+                    <td>3구 인덕션</td>
+                    <td>일반형</td>
+                    <td class="right">770,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="induction" class="option-checkbox normal-opt" id="ind2" data-price="201000" onchange="calculateTotal()"></td>
+                    <td>3구 인덕션</td>
+                    <td>고급형</td>
+                    <td class="right">2,010,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="induction" class="option-checkbox normal-opt" id="ind-none" data-price="0" checked onchange="calculateTotal()"></td>
+                    <td colspan="2">인덕션 선택 안함</td>
+                    <td class="right">0원</td>
+                </tr>
+                <!-- 오븐 -->
+                <tr>
+                    <td class="center"><input type="radio" name="oven" class="option-checkbox normal-opt" id="oven1" data-price="40000" onchange="calculateTotal()"></td>
+                    <td>전기오븐</td>
+                    <td>일반형</td>
+                    <td class="right">400,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="oven" class="option-checkbox normal-opt" id="oven2" data-price="217000" onchange="calculateTotal()"></td>
+                    <td>전기오븐</td>
+                    <td>고급형</td>
+                    <td class="right">2,170,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="radio" name="oven" class="option-checkbox normal-opt" id="oven-none" data-price="0" checked onchange="calculateTotal()"></td>
+                    <td colspan="2">오븐 선택 안함</td>
+                    <td class="right">0원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>가구 및 마감재</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>품목</th>
+                    <th class="right">총액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="floor" data-price="71000" onchange="calculateTotal()"></td>
+                    <td><label for="floor">와이드강마루</label></td>
+                    <td class="right">710,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="wall" data-price="400000" onchange="calculateTotal()"></td>
+                    <td><label for="wall">디자인월 (거실+복도)</label></td>
+                    <td class="right">4,000,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="door" data-price="160000" onchange="calculateTotal()"></td>
+                    <td><label for="door">현관중문</label></td>
+                    <td class="right">1,600,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="closet1" data-price="94000" onchange="calculateTotal()"></td>
+                    <td><label for="closet1">자녀방 붙박이장</label></td>
+                    <td class="right">940,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="closet2" data-price="265000" onchange="calculateTotal()"></td>
+                    <td><label for="closet2">올인원 드레스룸 (안방)</label></td>
+                    <td class="right">2,650,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="utility" data-price="134000" onchange="calculateTotal()"></td>
+                    <td><label for="utility">건식화 다용도실</label></td>
+                    <td class="right">1,340,000원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>조명 / 스마트홈</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center" style="width: 50px;">선택</th>
+                    <th>품목</th>
+                    <th class="right">총액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="lighting" data-price="359000" onchange="calculateTotal()"></td>
+                    <td><label for="lighting">스마트감성조명 더샵루미나 2.0</label></td>
+                    <td class="right">3,590,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="security" data-price="81000" onchange="calculateTotal()"></td>
+                    <td><label for="security">스마트홈앤시큐리티</label></td>
+                    <td class="right">810,000원</td>
+                </tr>
+                <tr>
+                    <td class="center"><input type="checkbox" class="option-checkbox normal-opt" id="fan" data-price="90000" onchange="calculateTotal()"></td>
+                    <td><label for="fan">실링팬</label></td>
+                    <td class="right">900,000원</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>참고 사항</h2>
+    <ul>
+        <li><strong>입주 예정:</strong> 2029년 12월</li>
+        <li><strong>계약 기간:</strong> 2026.07.14.(화) ~ 2026.07.18.(토)</li>
+        <li><strong>전매 제한:</strong> 3년 (최초 당첨자발표일 2026.06.30.부터)</li>
+        <li><strong>거주 의무:</strong> 3년</li>
+        <li><strong>중도금 대출:</strong> 이자후불제 예정 (대출 은행 추후 공지)</li>
+        <li><strong>분양 문의:</strong> 1600-2857</li>
+    </ul>
+
+    <div class="bottom-spacer"></div>
+</div>
+
+<!-- 실시간 총 금액 안내 바 -->
+<div class="sticky-summary">
+    <div class="summary-content">
+        <div class="summary-title">예상 필요 자금 총액 (분양가 + 선택 옵션)</div>
+        <div class="summary-total" id="total-display">456,600,000 원</div>
+        <div class="summary-details">
+            <span>계약금(10%): <span id="deposit-display">45,660,000</span>원</span>
+            <span>중도금(60%): <span id="middle-display">273,960,000</span>원</span>
+            <span>잔금(오픈지정일 30%+옵션90%): <span id="balance-display">136,980,000</span>원</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const BASE_PRICE = 456600000;
+    const BASE_DEPOSIT = 45660000;
+    const BASE_MIDDLE = 273960000;
+    const BASE_BALANCE = 136980000;
+
+    function formatNumber(num) {
+        return num.toLocaleString();
+    }
+
+    function handleMinusOption(checkbox) {
+        const normalOpts = document.querySelectorAll('.normal-opt');
+        const normalGroup = document.getElementById('normal-options-group');
+        
+        if (checkbox.checked) {
+            // 마이너스 옵션 선택 시 다른 옵션 모두 초기화 및 비활성화
+            normalOpts.forEach(opt => {
+                if(opt.type === 'checkbox') opt.checked = false;
+                if(opt.type === 'radio') {
+                    if(opt.id.includes('-none')) opt.checked = true;
+                    else opt.checked = false;
+                }
+                opt.disabled = true;
+            });
+            normalGroup.style.opacity = '0.5';
+        } else {
+            // 마이너스 옵션 해제 시 일반 옵션 활성화 (단, 에어컨/에코세이버 조건은 유지)
+            normalGroup.style.opacity = '1';
+            document.getElementById('balcony').disabled = false;
+            // 타 옵션들은 발코니 체크 여부에 따라 다름
+            handleBalcony(document.getElementById('balcony'));
+        }
+        calculateTotal();
+    }
+
+    function handleBalcony(checkbox) {
+        const airconRadios = document.querySelectorAll('.aircon-radio');
+        if (checkbox.checked) {
+            airconRadios.forEach(r => r.disabled = false);
+        } else {
+            airconRadios.forEach(r => {
+                r.disabled = true;
+                if(r.id === 'aircon-none') r.checked = true;
+                else r.checked = false;
+            });
+            handleAircon(); // 에어컨 리셋에 따른 에코세이버 연동 처리
+        }
+        calculateTotal();
+    }
+
+    function handleAircon() {
+        const aircon1 = document.getElementById('aircon1').checked;
+        const aircon2 = document.getElementById('aircon2').checked;
+        
+        const eco1 = document.getElementById('eco1');
+        const eco2 = document.getElementById('eco2');
+        const ecoNone = document.getElementById('eco-none');
+
+        if (aircon1 || aircon2) {
+            eco1.disabled = false;
+        } else {
+            eco1.disabled = true;
+            eco1.checked = false;
+            ecoNone.checked = true;
+        }
+
+        if (aircon2) {
+            eco2.disabled = false;
+        } else {
+            eco2.disabled = true;
+            eco2.checked = false;
+            if(!aircon1) ecoNone.checked = true;
+        }
+
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        let optionTotal = 0;
+        let optionDeposit = 0;
+        let optionBalance = 0;
+
+        // 마이너스 옵션 체크
+        const minusOpt = document.getElementById('minus-opt');
+        if (minusOpt.checked) {
+            // 마이너스 옵션은 분양가 자체에서 차감
+            const minusPrice = -29508000;
+            let total = BASE_PRICE + minusPrice;
+            
+            // 마이너스 옵션이 적용된 상태의 분양대금 10%, 60%, 30% 분할
+            let deposit = total * 0.1;
+            let middle = total * 0.6;
+            let balance = total * 0.3;
+
+            document.getElementById('total-display').innerText = formatNumber(total) + " 원";
+            document.getElementById('deposit-display').innerText = formatNumber(deposit);
+            document.getElementById('middle-display').innerText = formatNumber(middle);
+            document.getElementById('balance-display').innerText = formatNumber(balance);
+            return;
+        }
+
+        // 일반 옵션 금액 계산 (data-price 단위는 원본 금액에 맞춰 10,000을 곱함 단, 제공된 데이터 기반 스크립트 수정)
+        // 제공된 마크다운의 계약금 숫자가 총액의 10%이므로, data-price를 '총액' 기준으로 파싱하여 계산하도록 유도
+        
+        // 체크박스들
+        const checkboxes = document.querySelectorAll('.normal-opt[type="checkbox"]:checked');
+        checkboxes.forEach(cb => {
+            // 원래 가격 복원 (html 하드코딩 데이터 매핑 필요)
+            let price = getExactPrice(cb.id);
+            optionTotal += price;
+            optionDeposit += price * 0.1;
+            optionBalance += price * 0.9;
+        });
+
+        // 라디오 버튼들
+        const radios = document.querySelectorAll('.normal-opt[type="radio"]:checked');
+        radios.forEach(rb => {
+            let price = getExactPrice(rb.id);
+            optionTotal += price;
+            optionDeposit += price * 0.1;
+            optionBalance += price * 0.9;
+        });
+
+        let finalTotal = BASE_PRICE + optionTotal;
+        let finalDeposit = BASE_DEPOSIT + optionDeposit;
+        let finalMiddle = BASE_MIDDLE; // 중도금은 옵션 금액 포함 안됨
+        let finalBalance = BASE_BALANCE + optionBalance;
+
+        document.getElementById('total-display').innerText = formatNumber(finalTotal) + " 원";
+        document.getElementById('deposit-display').innerText = formatNumber(finalDeposit);
+        document.getElementById('middle-display').innerText = formatNumber(finalMiddle);
+        document.getElementById('balance-display').innerText = formatNumber(finalBalance);
+    }
+
+    function getExactPrice(id) {
+        const prices = {
+            'balcony': 4116000,
+            'aircon1': 4300000,
+            'aircon2': 7400000,
+            'aircon-none': 0,
+            'eco1': 3140000,
+            'eco2': 6370000,
+            'eco-none': 0,
+            'kit1': 8210000,
+            'kit2': 9450000,
+            'kit-none': 0,
+            'bath': 6360000,
+            'fridge1': 7060000,
+            'fridge2': 16320000,
+            'fridge-none': 0,
+            'dish1': 1040000,
+            'dish2': 2040000,
+            'dish-none': 0,
+            'ind1': 770000,
+            'ind2': 2010000,
+            'ind-none': 0,
+            'oven1': 400000,
+            'oven2': 2170000,
+            'oven-none': 0,
+            'floor': 710000,
+            'wall': 4000000,
+            'door': 1600000,
+            'closet1': 940000,
+            'closet2': 2650000,
+            'utility': 1340000,
+            'lighting': 3590000,
+            'security': 810000,
+            'fan': 900000
+        };
+        return prices[id] || 0;
+    }
+</script>
+
+</body>
+</html>
