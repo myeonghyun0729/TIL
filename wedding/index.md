@@ -8,4 +8,5 @@
 - 샌디스바오밥비치 Sandies Baobab
 - 투라코 능위 리조트 Turaco Nungwi Resort
 - 제노비아 비치 리조트 잔지바르(Zenobia Beach Resort Zanzibar)
-- 마이샤눙위 
+- 능위 드림스 Nungwi Dreams by Mantis
+
